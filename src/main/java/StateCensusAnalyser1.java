@@ -10,12 +10,12 @@ import java.util.List;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 
-public class StateCensusAnalyser {
+public class StateCensusAnalyser1 {
 	private final String CSV_PATH = "C:\\Users\\SHREEKANT\\Desktop\\JavaPracticeProblems\\Census_Analyser_Problem\\CensusAnalyserProblem-Day29\\src\\main\\resources\\IndiaStateCensusData.csv";
 
 	public static void main(String[] args) throws IOException {
 
-		StateCensusAnalyser read = new StateCensusAnalyser();
+		StateCensusAnalyser1 read = new StateCensusAnalyser1();
 		read.readCSVData();
 
 	}
@@ -30,7 +30,7 @@ public class StateCensusAnalyser {
 		/**
 		 * taking try and Catch block to handle the catch exceptions
 		 */
-		List<StateCensusCSV> users = new ArrayList<StateCensusCSV>();
+		List<StateCensusCSV1> users = new ArrayList<StateCensusCSV1>();
 		String line = "";
 		BufferedReader reader = new BufferedReader(new FileReader(CSV_PATH));
 		reader.readLine();
@@ -40,7 +40,7 @@ public class StateCensusAnalyser {
 			String[] fields = line.split(",");
 
 			if (fields.length > 0) {
-				StateCensusCSV user = new StateCensusCSV();
+				StateCensusCSV1 user = new StateCensusCSV1();
 				user.setState(fields[0]);
 				user.setPop(Integer.parseInt(fields[1]));
 				user.setArea(Integer.parseInt(fields[2]));
@@ -49,7 +49,7 @@ public class StateCensusAnalyser {
 			}
 		}
 
-		for (StateCensusCSV u : users) {
+		for (StateCensusCSV1 u : users) {
 			System.out.printf("[state=%s, population=%d, area=%d, density=%d]\n", u.getState(), u.getPop(), u.getArea(),
 					u.getDensity());
 		}

@@ -1,6 +1,6 @@
 import com.opencsv.bean.CsvBindByName;
 
-public class StateCensusCSV {
+public class StateCensusCSV1 {
 	/**
 	 * Seems that the CsvBindByName annotation always converts the column name to
 	 * UpperCase based on the OpenCSV source code Specifies a binding between a
