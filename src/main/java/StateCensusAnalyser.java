@@ -31,26 +31,28 @@ public class StateCensusAnalyser {
 		 * taking try and Catch block to handle the catch exceptions
 		 */
 		List<StateCensusCSV> users = new ArrayList<StateCensusCSV>();
-		   String line = "";
-		   BufferedReader reader = new BufferedReader(new FileReader(CSV_PATH));
-		   reader.readLine();
-		   
-		   while((line = reader.readLine()) != null) {
-		    String[] fields = line.split(",");
-		    
-		    if(fields.length > 0) {
-		     StateCensusCSV user = new StateCensusCSV();
-		     user.setState(fields[0]);
-		     user.setPop(Integer.parseInt(fields[1]));
-		     user.setArea(Integer.parseInt(fields[2]));
-		     user.setDensity(Integer.parseInt(fields[3]));
-		     users.add(user);
-		    }
-		   }
-		   
-		   for(StateCensusCSV u: users) {
-		    System.out.printf("[state=%s, population=%d, area=%d, density=%d]\n", u.getState(),u.getPop(), u.getArea(), u.getDensity());
-		   }
-		   
-		  }
+		String line = "";
+		BufferedReader reader = new BufferedReader(new FileReader(CSV_PATH));
+		reader.readLine();
+		int count = 0;
+		while ((line = reader.readLine()) != null) {
+			count += 1;
+			String[] fields = line.split(",");
+
+			if (fields.length > 0) {
+				StateCensusCSV user = new StateCensusCSV();
+				user.setState(fields[0]);
+				user.setPop(Integer.parseInt(fields[1]));
+				user.setArea(Integer.parseInt(fields[2]));
+				user.setDensity(Integer.parseInt(fields[3]));
+				users.add(user);
+			}
+		}
+
+		for (StateCensusCSV u : users) {
+			System.out.printf("[state=%s, population=%d, area=%d, density=%d]\n", u.getState(), u.getPop(), u.getArea(),
+					u.getDensity());
+		}
+
+	}
 }
